@@ -2,6 +2,7 @@ import unittest
 from main_file.set_assignment import *
 
 
+
 class MyTestCase(unittest.TestCase):
 
     def test_duplicates(self):
@@ -39,3 +40,8 @@ class MyTestCase(unittest.TestCase):
         expected = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15]
 
         self.assertEqual(expected, duplicate_element(list1))
+
+    def test_eliminate_duplicate_list(self):
+        list1 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15]
+        expected = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        self.assertEqual(expected,eliminate_duplicates(list1))

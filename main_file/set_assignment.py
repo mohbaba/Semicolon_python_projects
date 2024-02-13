@@ -30,6 +30,12 @@ def generate_list() -> list:
 
 
 def duplicate_element(num_list: list) -> list:
-    for number in range(len(num_list)):
-        num_list.insert(number, num_list[number])
-    return num_list
+    new_list  = []
+    for number in num_list:
+        new_list.append(number)
+        new_list.append(number)
+
+    return new_list
+
+def eliminate_duplicates(input_list):
+    return list(set(input_list))
