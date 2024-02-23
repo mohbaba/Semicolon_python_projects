@@ -21,6 +21,18 @@ class MyTestCase(unittest.TestCase):
             account.deposit(-5000)
             account.check_balance("1234")
 
+    def testDepositAmount_BalanceIncreases(self):
+        account = Account("abike", "1234", 0)
+        account.deposit(10_000)
+        self.assertEqual(10_000, account.check_balance("1234"))
+
+    def test_withdrawNegativeAmount_ThrowsExceptionTest(self):
+        account = Account("abike", "1234", 0)
+        account.deposit(10_000)
+        with self.assertRaises(InvalidAmountException):
+            account.withdraw(-5000, "1234")
+        account.check_balance("1234")
+
 
 if __name__ == '__main__':
     unittest.main()
