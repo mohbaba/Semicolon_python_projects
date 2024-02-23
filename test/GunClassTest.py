@@ -65,4 +65,4 @@ class MyTestCase(unittest.TestCase):
     def test_that_laser_can_on(self):
         shotgun: Gun = Gun(GunType.SHOTGUN)
         shotgun.toggle_laser()
-        self.assertEqual(True, shotgun.is_laser_on)
+        self.assertEqual(True, shotgun.is_laser_on )

@@ -22,9 +22,10 @@ class Gun:
             self.is_shot_gun = True
 
     def reload(self, ammo):
-        if ammo > self.clip_size:
+        time.sleep(5)
+        if (ammo + self.ammo_left) > self.clip_size:
             raise Exception(f"Gun clip size is {self.clip_size}, insufficient space for number of bullets provided ")
-        self.ammo_left = ammo
+        self.ammo_left += ammo
         self.is_clip_empty = False
 
     def shoot(self):
@@ -42,6 +43,3 @@ class Gun:
 
     def toggle_light(self):
         self.is_flash_on = not self.is_flash_on
-
-
-
