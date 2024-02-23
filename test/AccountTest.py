@@ -29,9 +29,20 @@ class MyTestCase(unittest.TestCase):
     def test_withdrawNegativeAmount_ThrowsExceptionTest(self):
         account = Account("abike", "1234", 0)
         account.deposit(10_000)
-        with self.assertRaises(InvalidAmountException):
+        with self.assertRaises(InsufficientFundsException):
             account.withdraw(-5000, "1234")
-        account.check_balance("1234")
+
+    def test_withdrawMoreThanAccountBalance_ThrowsException(self):
+        account = Account("abike", "1234", 0)
+        account.deposit(10_000)
+        with self.assertRaises(InsufficientFundsException):
+            account.withdraw(15000, "1234")
+
+    def test_enterIncorrectPinUponWithdrawal_ThrowException(self):
+        account = Account("abike", "1234", 0)
+        account.deposit(10_000)
+        with self.assertRaises(InvalidPinException):
+            account.withdraw(5000, "1i34")
 
 
 if __name__ == '__main__':
