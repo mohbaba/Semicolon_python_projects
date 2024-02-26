@@ -1,6 +1,6 @@
-from Account.exceptions.InsufficientFundsException import InsufficientFundsException
-from Account.exceptions.InvalidAmountException import InvalidAmountException
-from Account.exceptions.InvalidPinException import InvalidPinException
+from BankApp.exceptions.InsufficientFundsException import InsufficientFundsException
+from BankApp.exceptions.InvalidAmountException import InvalidAmountException
+from BankApp.exceptions.InvalidPinException import InvalidPinException
 
 
 class Account:

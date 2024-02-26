@@ -1,7 +1,7 @@
 import unittest
 
-from Account.Account1 import *
-from Account.exceptions.InvalidAmountException import InvalidAmountException
+from BankApp.Account1 import *
+from BankApp.exceptions.InvalidAmountException import InvalidAmountException
 
 
 class MyTestCase(unittest.TestCase):
@@ -43,6 +43,8 @@ class MyTestCase(unittest.TestCase):
         account.deposit(10_000)
         with self.assertRaises(InvalidPinException):
             account.withdraw(5000, "1i34")
+
+
 
 
 if __name__ == '__main__':
