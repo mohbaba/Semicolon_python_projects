@@ -8,11 +8,11 @@ class Account:
         self.name = name
         self.pin = pin
         self.balance = 0
-        self.accountNumber = account_number
+        self.account_number = account_number
 
     def validate_pin(self, pin):
         if self.pin != pin:
-            raise InvalidPinException
+            raise InvalidPinException("Incorrect Pin Entered")
 
     def check_balance(self, pin):
         self.validate_pin(pin)
@@ -28,5 +28,10 @@ class Account:
         if amount < 0 or amount > self.balance:
             raise InsufficientFundsException("Insufficient Funds")
         self.balance -= amount
+
+    def get_account_number(self):
+        return self.account_number
+
+
 
 
