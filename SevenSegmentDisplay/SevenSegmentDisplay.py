@@ -59,9 +59,11 @@ class SevenSegmentDisplay:
 
 
 
-user_input = "11101111"
+user_input = str(input("Enter combination: "))
 display = SevenSegmentDisplay(user_input)
 try:
     display.display(user_input)
 except UnboundLocalError:
     print("Number Combination entered doesn't exist")
+except ValueError:
+    print("They said enter string oga")
