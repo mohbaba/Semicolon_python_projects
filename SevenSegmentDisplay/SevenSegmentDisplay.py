@@ -59,6 +59,9 @@ class SevenSegmentDisplay:
 
 
 
-user_input = "11011010"
+user_input = "11101111"
 display = SevenSegmentDisplay(user_input)
-display.display(user_input)
+try:
+    display.display(user_input)
+except UnboundLocalError:
+    print("Number Combination entered doesn't exist")
