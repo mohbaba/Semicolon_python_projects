@@ -46,7 +46,6 @@ class Diary:
     def delete_entry(self, id):
         self.check_lock()
         entry = self.find_entry_by_id(id)
-        self.entries.
         self.entries.remove(entry)
 
     def find_entry_by_id(self, id):
