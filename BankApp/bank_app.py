@@ -76,8 +76,8 @@ def deposit():
         print(e)
     except InvalidPinException as e:
         print(e)
-    except Exception as e:
-        print(e)
+    except ValueError as e:
+        print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
     finally:
@@ -98,6 +98,8 @@ def withdraw():
         print(e)
     except InvalidPinException as e:
         print(e)
+    except ValueError:
+        print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
     finally:
@@ -118,8 +120,8 @@ def transfer():
         print(e)
     except InvalidPinException as e:
         print(e)
-    except Exception as e:
-        print(e)
+    except ValueError as e :
+        print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
     finally:
@@ -138,8 +140,8 @@ def check_balance():
         print(e)
     except InvalidPinException as e:
         print(e)
-    except Exception as e:
-        print(e)
+    except ValueError as e:
+        print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
     finally:

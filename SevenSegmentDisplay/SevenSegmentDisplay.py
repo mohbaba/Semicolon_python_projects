@@ -1,4 +1,4 @@
-from exceptions.exceeded_length_exception import *
+from SevenSegmentDisplay.exceptions.exceeded_length_exception import *
 
 
 class SevenSegmentDisplay:
@@ -57,13 +57,11 @@ class SevenSegmentDisplay:
             print("Display is off")
 
 
-
-
-user_input = str(input("Enter combination: "))
-display = SevenSegmentDisplay(user_input)
-try:
-    display.display(user_input)
-except UnboundLocalError:
-    print("Number Combination entered doesn't exist")
-except ValueError:
-    print("They said enter string oga")
+# user_input = str(input("Enter combination: "))
+# display = SevenSegmentDisplay(user_input)
+# try:
+#     display.display(user_input)
+# except UnboundLocalError:
+#     print("Number Combination entered doesn't exist")
+# except ValueError:
+#     print("They said enter string oga")
