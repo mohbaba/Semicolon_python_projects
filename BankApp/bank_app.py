@@ -17,7 +17,7 @@ def main_menu():
                            4-> Transfer
                            5-> Check Balance
                            6-> Exit App
-                           """);
+                           """)
 
         user_input = int(input("Select an option: "))
         match user_input:
@@ -42,12 +42,9 @@ def main_menu():
 
             case _:
                 main_menu()
-    except ValueError as e:
+    except ValueError:
         print("You are mad")
         main_menu()
-
-
-
 
 
 def register_account():
@@ -76,7 +73,7 @@ def deposit():
         print(e)
     except InvalidPinException as e:
         print(e)
-    except ValueError as e:
+    except ValueError:
         print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
@@ -120,7 +117,7 @@ def transfer():
         print(e)
     except InvalidPinException as e:
         print(e)
-    except ValueError as e :
+    except ValueError:
         print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
@@ -134,18 +131,18 @@ def check_balance():
     pin = input("Enter pin: ")
 
     try:
-        balance = bank.check_balance(account_number, pin);
+        balance = bank.check_balance(account_number, pin)
         print(f"Your Account balance is {balance}")
     except InsufficientFundsException as e:
         print(e)
     except InvalidPinException as e:
         print(e)
-    except ValueError as e:
+    except ValueError:
         print("Enter valid input ")
     except NoAccountFoundException as e:
         print(e)
     finally:
-        main_menu();
+        main_menu()
 
 
 main_menu()
