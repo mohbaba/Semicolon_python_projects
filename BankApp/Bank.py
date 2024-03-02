@@ -1,4 +1,5 @@
 from BankApp.Account1 import Account
+from BankApp.exceptions.InvalidPinException import InvalidPinException
 from BankApp.exceptions.NoAccountFoundException import NoAccountFoundException
 
 
@@ -36,12 +37,22 @@ class Bank:
         account.withdraw(amount, pin)
 
     def transfer(self, sender_account_number, receiver_account_number, amount, pin):
+        self.verify_pin(sender_account_number, pin)
         self.withdraw(amount, sender_account_number, pin)
         self.deposit(amount, receiver_account_number)
 
     def remove(self, account_number, pin):
+        self.verify_pin(account_number, pin)
         account = self.find_account(account_number)
         self.accounts.remove(account)
+
+    def verify_pin(self, account_number, pin):
+        if not self.is_pin_correct(account_number, pin):
+            raise InvalidPinException("Incorrect pin entered")
+
+    def is_pin_correct(self, account_number, pin):
+        account = self.find_account(account_number)
+        return account.pin == pin
 
     def number_of_customers(self):
         return len(self.accounts)
