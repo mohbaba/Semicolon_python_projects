@@ -4,8 +4,6 @@ from DiaryApp.exceptions.LockedDiaryException import LockedDiaryException
 from DiaryApp.Entry import *
 
 
-
-
 class Diary:
     is_locked = True
     entries = []
@@ -43,11 +41,6 @@ class Diary:
         if self.is_locked:
             raise LockedDiaryException("Diary is locked")
 
-    def delete_entry(self, id):
-        self.check_lock()
-        entry = self.find_entry_by_id(id)
-        self.entries.remove(entry)
-
     def find_entry_by_id(self, id):
         self.check_lock()
         for entry in self.entries:
@@ -62,6 +55,15 @@ class Diary:
         entry.setTitle(title)
         entry.setBody(body)
 
+
     def validate_entry(self, entry):
-        if entry == None:
-            raise EntryNotFoundException
+        if entry is None:
+            raise EntryNotFoundException("Entry does not exist")
+
+    def delete_entry(self, entry_id):
+        self.check_lock()
+        entry = self.find_entry_by_id(entry_id)
+        self.validate_entry(entry)
+        self.entries.remove(entry)
+        
+    

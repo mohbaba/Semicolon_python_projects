@@ -39,16 +39,16 @@ class MyTestCase(unittest.TestCase):
 
     def testCreateThreeEntries_deleteSecondEntryTestThatTheThirdAndFirstIdAreStillTheSame(self):
         self.diary.unlock_diary("password")
-        self.diary.create_entry("Name of the day","I had fun today!")
-        self.diary.create_entry("Game of the day","I had a fun day!")
-        self.diary.create_entry("Aim of the day","I had one today!")
+        self.diary.create_entry("Name of the day", "I had fun today!")
+        self.diary.create_entry("Game of the day", "I had a fun day!")
+        self.diary.create_entry("Aim of the day", "I had one today!")
         self.diary.delete_entry(1)
-        self.assertEqual(0,self.diary.find_entry_by_id(0).get_id())
-        self.assertEqual(2,self.diary.find_entry_by_id(2).get_id())
+        self.assertEqual(0, self.diary.find_entry_by_id(0).get_id())
+        self.assertEqual(2, self.diary.find_entry_by_id(2).get_id())
 
     def testCreateEntryOnDiaryWhenLocked_ThrowExceptionTest(self):
         with self.assertRaises(LockedDiaryException):
-            self.diary.create_entry("hello","sup")
+            self.diary.create_entry("hello", "sup")
 
     def testDeleteEntryOnDiaryWhenLocked_ThrowExceptionTest(self):
         with self.assertRaises(LockedDiaryException):
@@ -60,7 +60,7 @@ class MyTestCase(unittest.TestCase):
 
     def testFindAnEntry_WhenTheEntryExists(self):
         self.diary.unlock_diary("password")
-        self.diary.create_entry("Gym bro","cave")
+        self.diary.create_entry("Gym bro", "cave")
         self.assertIsNotNone(self.diary.find_entry_by_id(0))
 
     def testFindAnEntryThatDoesNotExist_returnNoneTest(self):
@@ -69,23 +69,19 @@ class MyTestCase(unittest.TestCase):
 
     def testUpdateEntryInDiaryWhenLocked_ThrowExceptionTest(self):
         with self.assertRaises(LockedDiaryException):
-            self.diary.update_diary(0,"title","body")
+            self.diary.update_diary(0, "title", "body")
 
     def testUpdateEntryInDiary_EntryChanges(self):
         self.diary.unlock_diary("password")
-        self.diary.create_entry("Bossman","Moh")
+        self.diary.create_entry("Bossman", "Moh")
         entry = self.diary.find_entry_by_id(0)
 
-        self.assertEqual("Bossman",entry.getTitle())
-        self.assertEqual("Moh",entry.getBody())
-        self.diary.update_diary(0,"big man","nw_body")
+        self.assertEqual("Bossman", entry.getTitle())
+        self.assertEqual("Moh", entry.getBody())
+        self.diary.update_diary(0, "big man", "nw_body")
 
         self.assertEqual("big man", entry.getTitle())
         self.assertEqual("nw_body", entry.getBody())
-
-
-
-
 
 
 if __name__ == '__main__':
