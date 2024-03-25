@@ -69,7 +69,7 @@ class MyTestCase(unittest.TestCase):
 
     def testUpdateEntryInDiaryWhenLocked_ThrowExceptionTest(self):
         with self.assertRaises(LockedDiaryException):
-            self.diary.update_diary(0, "title", "body")
+            self.diary.update_entry(0, "title", "body")
 
     def testUpdateEntryInDiary_EntryChanges(self):
         self.diary.unlock_diary("password")
@@ -78,7 +78,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual("Bossman", entry.getTitle())
         self.assertEqual("Moh", entry.getBody())
-        self.diary.update_diary(0, "big man", "nw_body")
+        self.diary.update_entry(0, "big man", "nw_body")
 
         self.assertEqual("big man", entry.getTitle())
         self.assertEqual("nw_body", entry.getBody())

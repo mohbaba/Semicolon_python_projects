@@ -20,8 +20,11 @@ class Diary:
         return self.is_locked
 
     def validate_password(self, password):
-        if self.password != password:
-            raise IncorrectPasswordException("The password you entered is incorrect")
+        return self.password == password
+
+    def validate_username(self, username):
+        return self.username == username
+
 
     def lock_diary(self):
         self.is_locked = True
@@ -48,7 +51,7 @@ class Diary:
                 return entry
         return None
 
-    def update_diary(self, id, title, body):
+    def update_entry(self, id, title, body):
         self.check_lock()
         entry = self.find_entry_by_id(id)
         self.validate_entry(entry)

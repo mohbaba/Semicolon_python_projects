@@ -13,5 +13,7 @@ class TaskOne:
          return self.string.upper()
 
 
-class Input:
-    def __init__(self):
+
+
+# class Input:
+#     def __init__(self):
